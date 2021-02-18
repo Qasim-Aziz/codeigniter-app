@@ -1,0 +1,28 @@
+name: Docker build for app
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-job:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    
+    - name: Docker login
+      env:
+        DOCKER_USER: ${{ secrets.DOCKER_USER }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      
+      run: |
+        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+    
+    - name: Docker build for app
+      run: |
+        docker build . -t qasim683/nabil-test:0.0.1
+    
+    - name: Docker push images
+      run: |
+        docker push docker.io/qasim683/nabil-test:0.0.1
