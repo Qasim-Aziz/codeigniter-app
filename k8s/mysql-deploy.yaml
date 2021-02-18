@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  generation: 1
+  labels:
+    app: mysql
+  name: mysql
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: mysql
+    spec:
+      containers:
+      - image: qasim683/mysql-ci4:0.0.1
+        imagePullPolicy: IfNotPresent
+        name: mysql-ci
+        env:
+          - name: MYSQL_ROOT_PASSWORD
+            value: 'root'
+          - name: MYSQL_USER
+            value: 'test'
+          - name: MYSQL_PASSWORD
+            value: 'pas123'
+          - name: MYSQL_DATABASE
+            value: 'itemdb'
+        ports:
+        - containerPort: 3306
