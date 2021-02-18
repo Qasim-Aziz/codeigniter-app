@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2021-02-18T16:46:29Z"
+  labels:
+    app: ci-deploy
+  name: ci-deploy
+  namespace: default
+  resourceVersion: "3288"
+  selfLink: /api/v1/namespaces/default/services/ci-deploy
+  uid: d272877e-77ff-4e69-9677-a5d4c1cafd12
+spec:
+  clusterIP: 10.102.84.5
+  externalTrafficPolicy: Cluster
+  ports:
+  - nodePort: 31356
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: ci-deploy
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}

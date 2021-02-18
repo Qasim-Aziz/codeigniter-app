@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: ci-deploy
+  name: ci-deploy
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ci-deploy
+  template:
+    metadata:
+      labels:
+        app: ci-deploy
+    spec:
+      containers:
+      - image: qasim683/nabil-test:0.0.1
+        imagePullPolicy: IfNotPresent
+        name: nabil-test
