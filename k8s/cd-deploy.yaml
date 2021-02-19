@@ -16,6 +16,5 @@ spec:
         app: ci-deploy
     spec:
       containers:
-      - image: qasim683/ci-test:0.0.1
-        imagePullPolicy: IfNotPresent
+      - image: qasim683/ci-test:0.0.2
         name: nabil-test
