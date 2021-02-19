@@ -6,7 +6,6 @@ metadata:
   name: mysql
   namespace: default
 spec:
-  clusterIP: 10.100.254.157
   ports:
   - port: 3306
     protocol: TCP
