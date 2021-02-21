@@ -16,5 +16,5 @@ spec:
         app: ci-deploy
     spec:
       containers:
-      - image: qasim683/ci-test:0.0.7
+      - image: qasim683/ci-test:0.0.8
         name: nabil-test

@@ -21,8 +21,8 @@ jobs:
     
     - name: Docker build for app
       run: |
-        docker build . -t qasim683/ci-test:0.0.7
+        docker build . -t qasim683/ci-test:0.0.8
     
     - name: Docker push images
       run: |
-        docker push docker.io/qasim683/ci-test:0.0.7
+        docker push docker.io/qasim683/ci-test:0.0.8
