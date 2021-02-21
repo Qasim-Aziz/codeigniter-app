@@ -13,7 +13,7 @@ COPY ci4.conf /etc/apache2/sites-enabled/
 RUN rm -f /etc/apache2/sites-enabled/000-default.conf
 RUN a2enmod rewrite
 COPY . /var/www/html/
-RUN chmod 777 -R /var/www/html/app
-RUN chown www-data:www-data /var/www/html/app
+RUN chmod 777 -R /var/www/html/Project
+RUN chown www-data:www-data /var/www/html/Project
 
 RUN service apache2 restart
